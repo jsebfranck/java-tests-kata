@@ -17,6 +17,11 @@ public class PasswordUtilsTest {
 	}
 
 	@Test
+	public void isPasswordValid_withNullPassword() {
+		assertFalse(PasswordUtils.isPasswordValid(null));
+	}
+
+	@Test
 	public void isPasswordValid_withShortPassword_shouldBeInvalid() {
 		assertFalse(PasswordUtils.isPasswordValid("aB+1aaa"));
 	}

@@ -1,8 +1,8 @@
-! Goal
+### Goal
 
-Your goal : all unit tests must pass !
+All unit tests must pass !
 
-! Covered concepts
+### Covered concepts
 
 JUnit :
 - @Test
