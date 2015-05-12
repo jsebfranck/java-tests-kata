@@ -19,7 +19,6 @@ public class PortfolioServiceTest {
 
 	@Before
 	public void setUp() {
-		portfolioService = new PortfolioService();
 	}
 
 	@Test
@@ -46,7 +45,7 @@ public class PortfolioServiceTest {
 		List<Account> result = portfolioService.getAccountsAllowingNewsletter(accounts);
 
 		// Then
-		assertNotNull(result);
+		assertNull(result);
 		assertTrue(result.isEmpty());
 	}
 

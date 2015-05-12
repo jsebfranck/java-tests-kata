@@ -1,17 +1,17 @@
 package com.jsebfranck.kata.subscription;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doReturn;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.jsebfranck.kata.account.Account;
 import com.jsebfranck.kata.account.AccountService;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 /**
  * @see SubscriptionService
@@ -24,7 +24,6 @@ public class SubscriptionServiceTest {
 	private static final int NEWSLETTER_ID = 100;
 
 	@InjectMocks
-	@Spy
 	private SubscriptionService subscriptionService;
 
 	@Mock

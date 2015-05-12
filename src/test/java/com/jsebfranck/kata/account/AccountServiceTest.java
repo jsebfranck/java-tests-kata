@@ -47,8 +47,7 @@ public class AccountServiceTest {
 	@Test
 	public void getAccountByLogin_withUnexistingAccount_shouldReturnNull() throws Exception {
 		// Given
-		doThrow(new EntityNotFoundException()).when(accountRepository)
-				.findAccount(LOGIN);
+		doThrow(new EntityNotFoundException()).when(accountRepository).findAccount(LOGIN);
 
 		// When
 		Account result = accountService.getAccountByLogin(LOGIN);

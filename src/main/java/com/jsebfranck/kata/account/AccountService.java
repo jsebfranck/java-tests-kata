@@ -26,7 +26,7 @@ public class AccountService {
 		}
 
 		if (getAccountByLogin(login) != null) {
-			throw new ServiceException(String.format("The account %s already exists", login));
+			throw new ServiceException(String.format("The account %s already exists"));
 		}
 
 		Account account = new Account(login, password);

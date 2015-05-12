@@ -16,7 +16,7 @@ public class SubscriptionService {
 	public boolean subscribeToNewsletter(String login, int newsletterId) {
 		Account account = accountService.getAccountByLogin(login);
 
-		if (!account.allowNewsletterSubscription()) {
+		if (account.allowNewsletterSubscription()) {
 			return false;
 		}
 

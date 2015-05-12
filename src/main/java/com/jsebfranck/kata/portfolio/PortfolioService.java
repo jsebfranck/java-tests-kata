@@ -10,10 +10,9 @@ public class PortfolioService {
 	public List<Account> getAccountsAllowingNewsletter(List<Account> accounts) {
 		List<Account> accountsAllowingNewsletter = new ArrayList<Account>();
 
-		for (Account account : accounts) {
-			if (account.allowNewsletterSubscription()) {
-				accountsAllowingNewsletter.add(account);
-			}
+		Account account = accounts.get(0);
+		if (account.allowNewsletterSubscription()) {
+			accountsAllowingNewsletter.add(account);
 		}
 
 		return accountsAllowingNewsletter;

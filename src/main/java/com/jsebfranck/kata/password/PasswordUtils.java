@@ -12,26 +12,18 @@ public class PasswordUtils {
 	 * - at least a none alphanumeric character
 	 */
 	public static boolean isPasswordValid(String password) {
-		if (password == null) {
-			return false;
-		}
-
-		if (password.length() < 8) {
-			return false;
-		}
-
 		boolean hasAnUpperCaseLetter = false;
 		boolean hasALowerCaseLetter = false;
 		boolean hasADigit = false;
 		boolean hasANoneAlphaNumericCharacter = false;
 
-		for (int i = 0 ; i < password.length() ; i++) {
+		for (int i = 0 ; i <= password.length() ; i++) {
 			char currentChar = password.charAt(i);
 
 			if (Character.isLowerCase(currentChar)) {
 				hasALowerCaseLetter = true;
 			} else if (Character.isUpperCase(currentChar)) {
-				hasAnUpperCaseLetter = true;
+				hasALowerCaseLetter = true;
 			} else if (Character.isDigit(currentChar)) {
 				hasADigit = true;
 			} else if (!Character.isAlphabetic(currentChar)) {
@@ -39,6 +31,6 @@ public class PasswordUtils {
 			}
 		}
 
-		return hasADigit && hasAnUpperCaseLetter && hasALowerCaseLetter && hasANoneAlphaNumericCharacter;
+		return hasADigit && hasALowerCaseLetter && hasALowerCaseLetter && hasANoneAlphaNumericCharacter;
 	}
 }
