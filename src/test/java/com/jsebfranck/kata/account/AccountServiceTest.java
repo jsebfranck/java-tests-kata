@@ -66,14 +66,18 @@ public class AccountServiceTest {
 		accountService.createAccount(LOGIN, PASSWORD);
 
 		// Then
+		assertThatAccountHasBeenCreated();
+
+		verify(accountRepository).findAccount(LOGIN);
+		verifyNoMoreInteractions(accountRepository);
+	}
+
+	private void assertThatAccountHasBeenCreated() {
 		ArgumentCaptor<Account> argument = ArgumentCaptor.forClass(Account.class);
 		verify(accountRepository).createAccount(argument.capture());
 		Account createdAccount = argument.getValue();
 		assertEquals(LOGIN, createdAccount.getLogin());
 		assertEquals(PASSWORD, createdAccount.getPassword());
-
-		verify(accountRepository).findAccount(LOGIN);
-		verifyNoMoreInteractions(accountRepository);
 	}
 
 	@Test(expected = ServiceException.class)
