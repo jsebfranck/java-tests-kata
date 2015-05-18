@@ -9,7 +9,7 @@ public class AccountService {
 
 	public Account getAccountByLogin(String login) {
 		try {
-			return accountRepository.findAccount(login);
+			return accountRepository.findAccount(null);
 		} catch (EntityNotFoundException enfe) {
 			return null;
 		}
