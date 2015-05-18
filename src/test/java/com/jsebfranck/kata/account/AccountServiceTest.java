@@ -8,16 +8,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * @see AccountService
  */
-@RunWith(MockitoJUnitRunner.class)
 public class AccountServiceTest {
 
 	private static final String LOGIN = "login";
@@ -65,18 +61,9 @@ public class AccountServiceTest {
 		accountService.createAccount(LOGIN, PASSWORD);
 
 		// Then
-		assertThatAccountHasBeenCreated();
-
+		verify(accountRepository).createAccount(EXISTING_ACCOUNT);
 		verify(accountRepository).findAccount(LOGIN);
 		verifyNoMoreInteractions(accountRepository);
-	}
-
-	private void assertThatAccountHasBeenCreated() {
-		ArgumentCaptor<Account> argument = ArgumentCaptor.forClass(Account.class);
-		verify(accountRepository).createAccount(argument.capture());
-		Account createdAccount = argument.getValue();
-		assertEquals(LOGIN, createdAccount.getLogin());
-		assertEquals(PASSWORD, createdAccount.getPassword());
 	}
 
 	@Test(expected = ServiceException.class)
