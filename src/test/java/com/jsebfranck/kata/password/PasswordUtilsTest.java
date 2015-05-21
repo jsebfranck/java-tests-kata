@@ -37,12 +37,12 @@ public class PasswordUtilsTest {
 	}
 
 	@Test
-	public void isPasswordValid_withoutLowerCaseLetter_shouldBeInvalid() {
+	public void isPasswordValid_withoutUpperCaseLetter_shouldBeInvalid() {
 		assertFalse(PasswordUtils.isPasswordValid("aa+1aaaa"));
 	}
 
 	@Test
-	public void isPasswordValid_withoutUpperCaseLetter_shouldBeInvalid() {
+	public void isPasswordValid_withoutLowerCaseLetter_shouldBeInvalid() {
 		assertTrue(PasswordUtils.isPasswordValid("AB+1AAAA"));
 	}
 }

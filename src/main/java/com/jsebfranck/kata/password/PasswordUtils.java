@@ -5,7 +5,7 @@ public class PasswordUtils {
 	/**
 	 * To be valid a password must respect the following rules :
 	 * - not null
-	 * - length > 8
+	 * - length >= 8
 	 * - at least one digit
 	 * - at least one letter in upper case
 	 * - at least one letter in lower case
